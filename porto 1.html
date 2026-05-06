@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recognize Potential | Digital Agency</title>
+    <style>
+        /* Import Font Modern */
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&display=swap');
+
+        :root {
+            --bg-color: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-red: #ff0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-links {
+            flex: 1;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .logo {
+            flex: 1;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-contact-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .social-links {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .nav-contact {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-contact:hover {
+            color: var(--accent-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 8rem 4rem 2rem 4rem;
+            min-height: 80vh;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop');
+            /* Ganti dengan gambar portrait Anda */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            filter: contrast(1.2) brightness(0.8);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            max-width: 400px;
+            line-height: 1.6;
+        }
+
+        .btn-touch {
+            align-self: flex-start;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--accent-red);
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .btn-touch:hover {
+            color: var(--accent-red);
+        }
+
+
+
+        /* Typography Section */
+        .typography-section {
+            padding: 6rem 4rem;
+            position: relative;
+        }
+
+        .about-label {
+            position: absolute;
+            top: 6rem;
+            left: 4rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .big-text {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: right;
+            line-height: 1.2;
+            text-transform: uppercase;
+            max-width: 80%;
+            margin-left: auto;
+        }
+
+        /* Marquee Section (Red Banner) */
+        .marquee-container {
+            background-color: var(--accent-red);
+            padding: 1.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-item {
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 0 3rem;
+            color: var(--bg-color);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Hook Section */
+        .hook-section {
+            padding: 10rem 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--bg-color), #0f0f0f);
+        }
+
+        .hook-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hook-headline {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hook-headline .highlight {
+            color: var(--accent-red);
+            font-style: italic;
+        }
+
+        .hook-intro {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Showcase Section */
+        .showcase-section {
+            padding: 8rem 4rem;
+            background-color: #0f0f0f;
+        }
+
+        .showcase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .showcase-header .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .showcase-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem 3rem;
+        }
+
+        .portfolio-item {
+            cursor: pointer;
+        }
+
+        .offset-item {
+            margin-top: 5rem;
+        }
+
+        .portfolio-img-wrapper {
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 600px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.7s ease;
+            filter: grayscale(0.8) brightness(0.6);
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+            filter: grayscale(0) brightness(1);
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-info h3 {
+            color: var(--accent-red);
+        }
+
+        .portfolio-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Me Section */
+        .about-me-section {
+            padding: 8rem 4rem;
+            background-color: var(--bg-color);
+        }
+
+        .about-me-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            border-radius: 12px;
+            filter: grayscale(0.8) contrast(1.2);
+            transition: filter 0.5s ease;
+        }
+
+        .about-image:hover {
+            filter: grayscale(0) contrast(1);
+        }
+
+        .about-content .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+            font-weight: 700;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 8rem 4rem;
+            background-color: #050505;
+        }
+
+        .skills-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .skills-header .section-title {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .skills-card {
+            background-color: #0a0a0a;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skills-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 0, 0, 0.3);
+        }
+
+        .skills-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent-red);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skills-tags span {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skills-tags span:hover {
+            background-color: var(--accent-red);
+            color: white;
+            border-color: var(--accent-red);
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 8rem 4rem;
+            background-color: var(--bg-color);
+        }
+
+        .experience-header {
+            margin-bottom: 4rem;
+        }
+
+        .experience-header .section-title {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+        }
+
+        .timeline {
+            max-width: 100%;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-date {
+            font-size: 1rem;
+            color: var(--accent-red);
+            font-weight: 700;
+            width: 150px;
+            flex-shrink: 0;
+            padding-top: 0.2rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .company {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 8rem 4rem;
+            background-color: #050505;
+        }
+
+        .testimonial-card {
+            background-color: #0a0a0a;
+            padding: 4rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: var(--accent-red);
+            opacity: 0.2;
+            position: absolute;
+            top: 2rem;
+            left: 3rem;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            color: var(--accent-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 12rem 4rem 4rem 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #050505, var(--accent-red));
+            color: white;
+        }
+
+        .cta-headline {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--bg-color);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin-bottom: 8rem;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background-color: #1a1a1a;
+        }
+
+        .main-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-right a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-right a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .big-text {
+                font-size: 2rem;
+                text-align: left;
+                margin-left: 0;
+                margin-top: 2rem;
+            }
+
+            nav,
+            .hero,
+            .typography-section,
+            .hook-section,
+            .showcase-section {
+                padding: 2rem;
+            }
+
+            .social-links {
+                display: none;
+            }
+
+            .hook-headline {
+                font-size: 2.5rem;
+            }
+
+            .showcase-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .offset-item {
+                margin-top: 0;
+            }
+
+            .portfolio-img {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#works">Works</a>
+            <a href="#skills">Skills</a>
+        </div>
+        <a href="#" class="logo">AM</a>
+        <div class="nav-contact-wrapper">
+            <a href="#contact" class="nav-contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-image"></div>
+        <div class="hero-content">
+            <h1>Recognize<br>Potential</h1>
+            <p>Discover the power of innovation and embrace growth with bold strategies.</p>
+            <a href="https://www.instagram.com/abyan.mumtaz/" target="_blank" rel="noopener noreferrer"
+                class="btn-touch">GET IN TOUCH ↗</a>
+        </div>
+    </header>
+
+
+
+    <section class="typography-section">
+        <div class="big-text">
+            Let's work together<br>
+            to recognize your<br>
+            potential and shape<br>
+            a future where<br>
+            your brand shines.
+        </div>
+    </section>
+
+    <section class="marquee-container">
+        <div class="marquee-content">
+            <span class="marquee-item">Design Graphic </span>
+            <span class="marquee-item">Social media Design</span>
+            <span class="marquee-item">Layout Design</span>
+            <span class="marquee-item">Video Editing</span>
+            <span class="marquee-item">Photography</span>
+            <span class="marquee-item">Web Design</span>
+            <!-- Diduplikasi untuk efek loop tanpa putus -->
+            <span class="marquee-item">Design Graphic </span>
+            <span class="marquee-item">Social media Design</span>
+            <span class="marquee-item">Layout Design</span>
+            <span class="marquee-item">Video Editing</span>
+            <span class="marquee-item">Photography</span>
+            <span class="marquee-item">Web Design</span>
+        </div>
+    </section>
+
+    <!-- Hook Section -->
+    <section class="hook-section">
+        <div class="hook-content">
+            <h2 class="hook-headline">Membentuk Visi Menjadi <span class="highlight">Realitas Digital</span></h2>
+            <p class="hook-intro">Kami tidak sekadar mendesain, kami menciptakan pengalaman yang meninggalkan kesan
+                mendalam dan mendorong pertumbuhan bisnis Anda ke level selanjutnya.</p>
+        </div>
+    </section>
+
+    <!-- Showcase / Meat Section -->
+    <section class="showcase-section" id="works">
+        <div class="showcase-header">
+            <h2 class="section-title">Selected Works</h2>
+            <p>Explore our recent digital transformations.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-img-wrapper">
+                    <div class="portfolio-img" style="background-image: url('1.png');">
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Multimedia Advertising</h3>
+                    <p>Branding / sosmed design</p>
+                </div>
+            </div>
+            <div class="portfolio-item offset-item">
+                <div class="portfolio-img-wrapper">
+                    <div class="portfolio-img" style="background-image: url('4.png');">
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Digital Business Strategy & Analytics</h3>
+                    <p>Project Transformation</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-img-wrapper">
+                    <div class="portfolio-img" style="background-image: url('2.png');">
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Freelance Project</h3>
+                    <p>banner design</p>
+                </div>
+            </div>
+            <div class="portfolio-item offset-item">
+                <div class="portfolio-img-wrapper">
+                    <div class="portfolio-img" style="background-image: url('3.png');">
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Creative Multimedia Exploration</h3>
+                    <p>Photography Landscape</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-me-section" id="about">
+        <div class="about-me-grid">
+            <div class="about-image-wrapper">
+                <img src="abyan photo.png" class="about-image" alt="Abyan Photo">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title">The Mind<br>Behind The Design</h2>
+                <p>Halo! Saya Abyan Naufal Mumtaz, seorang mahasiswa Bisnis Digital yang mendedikasikan diri pada titik
+                    temu antara kreativitas dan strategi data. Dengan latar belakang kuat di bidang
+                    desain grafis, videografi, dan fotografi, saya tidak hanya menciptakan visual yang memanjakan mata,
+                    tetapi juga memastikan setiap konten memiliki nilai konversi dalam ekosistem multimedia marketing.
+                    Saya percaya bahwa desain yang hebat adalah desain yang mampu mengomunikasikan pesan dan
+                    mengembangkan bisnis secara terukur.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Many</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="skills-header">
+            <h2 class="section-title">Expertise & Tools</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skills-card">
+                <h3>Soft Skills</h3>
+                <div class="skills-tags">
+                    <span>Teamwork</span>
+                    <span>Desire to learn</span>
+                    <span>Adaptability</span>
+                    <span>Creativity </span>
+                </div>
+            </div>
+            <div class="skills-card">
+                <h3>Hard SKills</h3>
+                <div class="skills-tags">
+                    <span>Design Graphic</span>
+                    <span>Social Media Design</span>
+                    <span>Layout Design</span>
+                    <span>Video Editing</span>
+                    <span>Photography</span>
+                    <span>Web Design</span>
+                </div>
+            </div>
+            <div class="skills-card">
+                <h3>Tools</h3>
+                <div class="skills-tags">
+                    <span>Adobe Illustrator</span>
+                    <span>Adobe Photoshop</span>
+                    <span>Adobe Premier</span>
+                    <span>Capcut</span>
+                    <span>Affinity</span>
+                    <span>Figma</span>
+                    <span>Canva</span>
+                    <span>VsCode</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <div class="experience-header">
+            <h2 class="section-title">Career Journey</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">July 2024 - October 2024</div>
+                <div class="timeline-content">
+                    <h3>Intern <br> Grapich Designer</h3>
+                    <div class="company">Morning Communications</div>
+                    <p>Sebagai bagian dari kurikulum SMK Multimedia, saya berkesempatan untuk terjun langsung ke dunia
+                        profesional melalui program magang di Morning Communication dari Juli hingga Oktober 2024.
+                        Pengalaman ini menjadi jembatan bagi saya untuk mempraktikkan keahlian desain grafis dan video
+                        grafis saya dalam ekosistem Advertising Agency. Terjun langsung ke lapangan sejak bangku sekolah
+                        memberikan saya perspektif berharga mengenai cara kerja industri kreatif dan bagaimana
+                        multimedia berperan penting dalam strategi pemasaran bisnis.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2021 - Sekarang</div>
+                <div class="timeline-content">
+                    <h3>Freelance Graphic Designer</h3>
+                    <p>Perjalanan saya di dunia digital dimulai pada tahun 2021 dengan semangat kewirausahaan di tengah
+                        masa pandemi COVID-19. Berawal dari tekad untuk menjalankan bisnis top-up game secara online,
+                        saya mulai menyadari pentingnya visual yang menarik untuk mendukung penjualan. Hal ini memicu
+                        ketertarikan mendalam saya terhadap dunia desain. <br>
+
+                        Sejalan dengan minat tersebut, saya memutuskan untuk memperkuat fondasi teknis dengan menempuh
+                        pendidikan di SMK Multimedia. Pendidikan formal ini semakin memantapkan tekad saya untuk
+                        bergelut secara profesional di bidang kreatif. Sejak saat itu, saya aktif membuka jasa desain
+                        grafis secara freelance, di mana saya terus mengeksplorasi teknik baru dalam komposisi visual,
+                        tipografi, dan multimedia marketing untuk memberikan solusi terbaik bagi klien-klien saya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Sebagai mahasiswa Bisnis Digital yang aktif sebagai desainer sejak 2021, saya
+                memegang prinsip Paul Rand bahwa 'Design is the silent ambassador of your brand'. Saya tidak hanya
+                membuat visual, tapi membangun identitas bisnis Anda.</p>
+            <p class="testimonial-author">Abyan Mumtaz</p>
+        </div>
+    </section>
+
+    <!-- CTA & Footer Section -->
+    <section class="cta-section" id="contact">
+        <h2 class="cta-headline">Ready to Start<br>Your Next Project?</h2>
+        <a href="mailto:hello@example.com" class="btn-primary">Let's Talk</a>
+
+        <footer class="main-footer">
+            <div class="footer-left">
+                <p>&copy; 2026 Recognize Potential. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </footer>
+    </section>
+
+</body>
+
+</html>
