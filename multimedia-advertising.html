@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Advertising | Abyan Mumtaz</title>
+    <style>
+        /* Import Font Modern */
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&display=swap');
+
+        :root {
+            --bg-color: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-red: #ff0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-links {
+            flex: 1;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .logo {
+            flex: 1;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-contact-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-contact {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-contact:hover {
+            color: var(--accent-red);
+        }
+
+        /* Hero Detail */
+        .hero-detail {
+            padding: 12rem 4rem 4rem 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #111, var(--bg-color));
+        }
+
+        .hero-detail h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-detail p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        /* Portfolio Detail Grid */
+        .detail-grid {
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .detail-img-wrapper {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        .detail-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .detail-item:hover .detail-img {
+            transform: scale(1.02);
+        }
+
+        .detail-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-info p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .cta-section {
+            padding: 8rem 4rem 4rem 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--bg-color), var(--accent-red));
+        }
+
+        .main-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-right a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-detail h1 {
+                font-size: 3rem;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .hero-detail {
+                padding: 10rem 2rem 4rem 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#works">Works</a>
+            <a href="index.html#skills">Skills</a>
+        </div>
+        <a href="index.html" class="logo">AM</a>
+        <div class="nav-contact-wrapper">
+            <a href="index.html#contact" class="nav-contact">Contact Me</a>
+        </div>
+    </nav>
+
+    <header class="hero-detail">
+        <a href="index.html#works" class="back-btn">← Back to Projects</a>
+        <h1 style="margin-top: 2rem;">Multimedia Advertising</h1>
+        <p>A collection of strategic branding and social media designs crafted to elevate brand identity and drive
+            engagement through high-impact visual storytelling.</p>
+    </header>
+
+    <section class="detail-grid">
+        <!-- Project 1 (The one from index) -->
+        <div class="detail-item">
+            <a href="meister-detail.html" style="text-decoration: none; color: inherit;">
+                <div class="detail-img-wrapper">
+                    <img src="MEISTER.png" alt="Multimedia Advertising 1" class="detail-img">
+                </div>
+            </a>
+            <div class="detail-info">
+                <h3>MEISTER</h3>
+                <p>Dalam proyek ini, saya bertanggung jawab untuk mengembangkan identitas visual digital Meister
+                    melalui serangkaian konten media sosial yang persuasif.</p>
+            </div>
+        </div>
+
+        <!-- Project 2 (New) -->
+        <div class="detail-item">
+            <a href="anlene-detail.html" style="text-decoration: none; color: inherit;">
+                <div class="detail-img-wrapper">
+                    <img src="ANLENE.png" alt="Luxury Brand Design" class="detail-img">
+                </div>
+            </a>
+            <div class="detail-info">
+                <h3>ANLENE & ANMUM</h3>
+                <p>Dalam proyek ini, saya bertanggung jawab untuk mengaplikasikan identitas visual Anlene ke dalam
+                    varian rasa baru tanpa mengubah struktur kemasan yang sudah mapan dan Mengembangkan logo tagline
+                    "Susu No. 1 Dewasa Di Indonesia*" dengan desain yang tegas dan modern.</p>
+            </div>
+        </div>
+
+        <!-- Project 3 (New) -->
+        <div class="detail-item">
+            <a href="blueband-detail.html" style="text-decoration: none; color: inherit;">
+                <div class="detail-img-wrapper">
+                    <img src="BLUEBAND.png" alt="Tech Startup Branding" class="detail-img">
+                </div>
+            </a>
+            <div class="detail-info">
+                <h3>BLUEBAND</h3>
+                <p>Dalam proyek ini, saya ditugaskan untuk menciptakan materi promosi di titik penjualan (Point of Sale)
+                    dan merchandise yang mampu meningkatkan visibilitas produk di area retail yang padat.</p>
+            </div>
+        </div>
+
+        <!-- Project 4 (New) -->
+        <div class="detail-item">
+            <a href="kitkat-detail.html" style="text-decoration: none; color: inherit;">
+                <div class="detail-img-wrapper">
+                    <img src="KITKAT.png" alt="Corporate Strategy" class="detail-img">
+                </div>
+            </a>
+            <div class="detail-info">
+                <h3>KITKAT INDONESIA</h3>
+                <p>Dalam proyek ini, saya mengeksplorasi fleksibilitas visual KitKat melalui dua pendekatan kreatif :
+                    Regional Campaign Visual dan Flavor Extension Design</p>
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="detail-item">
+            <a href="kokokrunch-detail.html" style="text-decoration: none; color: inherit;">
+                <div class="detail-img-wrapper">
+                    <img src="KOKOKRUNCH.png" alt="Koko Krunch Branding" class="detail-img">
+                </div>
+            </a>
+            <div class="detail-info">
+                <h3>KOKO KRUNCH</h3>
+                <p>Dalam proyek ini, saya merancang visual untuk kampanye "Koko Krunch Kreatif Club Pola", sebuah
+                    inisiatif yang bertujuan untuk meningkatkan interaksi konsumen cilik dengan brand melalui aktivitas
+                    edukatif.</p>
+            </div>
+        </div>
+
+        <!-- Agency Logo / Internship -->
+        <div class="detail-item">
+            <a href="morning-detail.html" style="text-decoration: none; color: inherit;">
+                <div class="detail-img-wrapper">
+                    <img src="11.png" alt="Morning Communications Logo" class="detail-img">
+                </div>
+            </a>
+            <div class="detail-info">
+                <h3>MORNING COMMUNICATIONS</h3>
+                <p>Tempat saya melaksanakan program magang selama 4 bulan, di mana saya mengasah kemampuan profesional
+                    di
+                    industri Advertising Agency.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <footer class="main-footer">
+            <div class="footer-left">
+                <p>&copy; 2026 Recognize Potential. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.instagram.com/abyan.mumtaz/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/abyan-mumtaz-590b7028b/" target="_blank">LinkedIn</a>
+                <a href="https://www.tiktok.com/@abyan.mumtaz_" target="_blank">Tiktok</a>
+            </div>
+        </footer>
+    </section>
+
+</body>
+
+</html>

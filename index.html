@@ -327,6 +327,42 @@
             letter-spacing: 1px;
         }
 
+        .view-project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .view-project-overlay span {
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            border: 1px solid white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .view-project-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .view-project-overlay span {
+            transform: translateY(0);
+        }
+
         /* About Me Section */
         .about-me-section {
             padding: 8rem 4rem;
@@ -828,16 +864,22 @@
             <p>Explore my recent digital transformations.</p>
         </div>
         <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-img-wrapper">
-                    <div class="portfolio-img" style="background-image: url('1.png');">
+            <a href="multimedia-advertising.html" class="portfolio-link-wrapper"
+                style="text-decoration: none; color: inherit;">
+                <div class="portfolio-item">
+                    <div class="portfolio-img-wrapper" style="position: relative;">
+                        <div class="portfolio-img" style="background-image: url('1.png');">
+                        </div>
+                        <div class="view-project-overlay">
+                            <span>View Project ↗</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Multimedia Advertising</h3>
+                        <p>Branding / sosmed design</p>
                     </div>
                 </div>
-                <div class="portfolio-info">
-                    <h3>Multimedia Advertising</h3>
-                    <p>Branding / sosmed design</p>
-                </div>
-            </div>
+            </a>
             <div class="portfolio-item offset-item">
                 <div class="portfolio-img-wrapper">
                     <div class="portfolio-img" style="background-image: url('4.png');">

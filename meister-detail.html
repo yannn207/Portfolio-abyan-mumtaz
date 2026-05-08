@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEISTER Project | Abyan Mumtaz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&display=swap');
+
+        :root {
+            --bg-color: #050505;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-red: #ff0000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-primary); font-family: 'Manrope', sans-serif; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+
+        .close-btn { position: fixed; top: 2rem; right: 2rem; width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.5rem; backdrop-filter: blur(10px); z-index: 1000; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .close-btn:hover { background: var(--accent-red); transform: rotate(90deg); }
+
+        .viewer-container { flex: 1; display: flex; flex-direction: column; padding: 2rem; max-width: 1400px; margin: 0 auto; width: 100%; }
+        .project-header { padding: 1rem 0 2rem 0; }
+        .project-header h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; text-transform: uppercase; letter-spacing: -1px; line-height: 1; }
+        .project-header p { color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0.5rem; }
+
+        .display-section { position: relative; width: 100%; height: 70vh; background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); border-radius: 30px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .main-media { max-width: 100%; max-height: 100%; object-fit: contain; transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); padding: 2rem; }
+        video.main-media { width: 100%; height: 100%; }
+
+        .nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 60px; height: 60px; background: rgba(255, 255, 255, 0.05); border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; z-index: 10; }
+        .nav-arrow:hover { background: var(--accent-red); transform: translateY(-50%) scale(1.1); }
+        .prev-arrow { left: 2rem; }
+        .next-arrow { right: 2rem; }
+
+        .thumbnail-container { margin-top: 2rem; width: 100%; background: rgba(255, 255, 255, 0.02); padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .thumbnail-scroll { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: thin; scrollbar-color: var(--accent-red) transparent; }
+        .thumbnail-scroll::-webkit-scrollbar { height: 4px; }
+        .thumbnail-scroll::-webkit-scrollbar-thumb { background: var(--accent-red); border-radius: 10px; }
+
+        .thumb { flex: 0 0 120px; height: 90px; border-radius: 12px; overflow: hidden; cursor: pointer; opacity: 0.3; transition: all 0.4s ease; border: 2px solid transparent; position: relative; }
+        .thumb:hover { opacity: 0.7; transform: translateY(-5px); }
+        .thumb.active { opacity: 1; border-color: var(--accent-red); transform: scale(1.05) translateY(-5px); box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2); }
+        .thumb img, .thumb video { width: 100%; height: 100%; object-fit: cover; }
+        
+        .video-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; backdrop-filter: blur(5px); }
+
+        .footer-info { margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); font-size: 0.9rem; }
+
+        @media (max-width: 768px) { .display-section { height: 50vh; } .nav-arrow { width: 40px; height: 40px; font-size: 1rem; } .thumb { flex: 0 0 80px; height: 60px; } }
+    </style>
+</head>
+
+<body>
+    <a href="multimedia-advertising.html" class="close-btn">✕</a>
+    <div class="viewer-container">
+        <header class="project-header">
+            <p>Project Detail</p>
+            <h1>MEISTER</h1>
+        </header>
+
+        <section class="display-section">
+            <button class="nav-arrow prev-arrow" onclick="prevImage()">❮</button>
+            <div id="mediaContainer" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                <img id="mainImage" src="MEISTER%20HASIL/Meister%20Social%20Media%20Post-KV-R1.jpg" alt="Meister Project" class="main-media">
+                <video id="mainVideo" class="main-media" style="display: none;" controls loop muted></video>
+            </div>
+            <button class="nav-arrow next-arrow" onclick="nextImage()">❯</button>
+        </section>
+
+        <div class="thumbnail-container">
+            <div class="thumbnail-scroll" id="thumbScroll"></div>
+        </div>
+
+        <div class="footer-info">
+            <span>&copy; 2026 Recognize Potential</span>
+            <span id="imageCounter">1 / 0</span>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            "MEISTER%20HASIL/hotdog%20days.mp4",
+            "MEISTER%20HASIL/Meister%20Social%20Media%20Post-Hut-RI-79-R1.jpg",
+            "MEISTER%20HASIL/Meister%20Social%20Media%20Post-KV-R1.jpg",
+            "MEISTER%20HASIL/Meister%20Social%20Media%20Post-manakah%20favoritmu%20fortune%20wheel-R1.mp4",
+            "MEISTER%20HASIL/Meister-Social-Media-Popout-R7.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-anatomi-hotdog-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-beef-bacon-slide1-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-beef-bacon-slide2-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-beef-bacon-story-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-Hut-RI-79-FEEDS-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-ide-makanan-dengan-sosis-slide1-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-ide-makanan-dengan-sosis-slide2-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-ide-makanan-dengan-sosis-slide3-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-manfaat-sarapan-dengan-sosis-feeds-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-manfaat-sarapan-dengan-sosis-R4.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-meister-love-language-quiz-R4.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-meister-moodbooster-feeds-R3.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-penyimpanan-sosis-slide1-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-penyimpanan-sosis-slide2-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-penyimpanan-sosis-slide2-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-penyimpanan-sosis-story-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-sausage-link-slide1-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-sausage-link-slide2-R3.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-sausage-link-story-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-sejarah-Deutsches-Currywurst-Museum-slide1-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-sejarah-Deutsches-Currywurst-Museum-slide2-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-sejarah-Deutsches-Currywurst-Museum-slide2-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-sejarah-Deutsches-Currywurst-Museum-slide3-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-sejarah-Deutsches-Currywurst-Museum-story-slide2-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-story-ide-makanan-dengan-sosis-slide1-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-story-ide-makanan-dengan-sosis-slide2-R2.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-story-ide-makanan-dengan-sosis-slide3-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-Post-weekendplan-R1.jpg",
+            "MEISTER%20HASIL/Meister-Social-Media-storyt-meister-moodbooster-R2.jpg"
+        ];
+        
+        let currentIndex = 0;
+        const thumbScroll = document.getElementById('thumbScroll');
+        const mainImg = document.getElementById('mainImage');
+        const mainVideo = document.getElementById('mainVideo');
+        const counter = document.getElementById('imageCounter');
+
+        images.forEach((src, index) => {
+            const isVideo = src.toLowerCase().endsWith('.mp4');
+            const thumb = document.createElement('div');
+            thumb.className = `thumb ${index === 0 ? 'active' : ''}`;
+            thumb.onclick = () => changeImage(index);
+            if (isVideo) {
+                thumb.innerHTML = `<video src="${src}#t=1"></video><div class="video-badge">▶</div>`;
+            } else {
+                thumb.innerHTML = `<img src="${src}" alt="Result ${index + 1}">`;
+            }
+            thumbScroll.appendChild(thumb);
+        });
+
+        function changeImage(index) {
+            currentIndex = index;
+            const src = images[currentIndex];
+            const isVideo = src.toLowerCase().endsWith('.mp4');
+            
+            mainImg.style.opacity = '0';
+            mainVideo.style.opacity = '0';
+            
+            setTimeout(() => {
+                if (isVideo) {
+                    mainImg.style.display = 'none';
+                    mainVideo.style.display = 'block';
+                    mainVideo.src = src;
+                    mainVideo.style.opacity = '1';
+                    mainVideo.play();
+                } else {
+                    mainVideo.pause();
+                    mainVideo.style.display = 'none';
+                    mainImg.style.display = 'block';
+                    mainImg.src = src;
+                    mainImg.style.opacity = '1';
+                }
+                counter.innerText = `${currentIndex + 1} / ${images.length}`;
+                const thumbs = document.querySelectorAll('.thumb');
+                thumbs.forEach((t, i) => {
+                    if(i === currentIndex) {
+                        t.classList.add('active');
+                        t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    } else { t.classList.remove('active'); }
+                });
+            }, 300);
+        }
+
+        function nextImage() { changeImage((currentIndex + 1) % images.length); }
+        function prevImage() { changeImage((currentIndex - 1 + images.length) % images.length); }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowRight") nextImage();
+            if (e.key === "ArrowLeft") prevImage();
+            if (e.key === "Escape") window.location.href = 'multimedia-advertising.html';
+        });
+        counter.innerText = `1 / ${images.length}`;
+        // Auto play first if video
+        if (images[0].toLowerCase().endsWith('.mp4')) { changeImage(0); }
+    </script>
+</body>
+</html>
