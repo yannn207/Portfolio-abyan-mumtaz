@@ -102,6 +102,38 @@
             color: var(--accent-red);
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-right: 1rem;
+        }
+
+        .lang-btn {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            border: none;
+            background: transparent;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         /* Hero Section */
         .hero {
             display: grid;
@@ -798,30 +830,34 @@
 
     <nav>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#works">Works</a>
-            <a href="#skills">Skills</a>
+            <a href="#about" data-i18n="nav-about">About</a>
+            <a href="#works" data-i18n="nav-works">Works</a>
+            <a href="#skills" data-i18n="nav-skills">Skills</a>
         </div>
         <a href="#" class="logo">AM</a>
         <div class="nav-contact-wrapper">
-            <a href="#contact" class="nav-contact">Contact Me</a>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="id">ID</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <a href="#contact" class="nav-contact" data-i18n="nav-contact">Contact Me</a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-image"></div>
         <div class="hero-content">
-            <h1>Recognize<br>Potential</h1>
-            <p>Discover the power of innovation and embrace growth with bold strategies.</p>
+            <h1 data-i18n="hero-title">Recognize<br>Potential</h1>
+            <p data-i18n="hero-desc">Discover the power of innovation and embrace growth with bold strategies.</p>
             <a href="https://www.instagram.com/abyan.mumtaz/" target="_blank" rel="noopener noreferrer"
-                class="btn-touch">GET IN TOUCH ↗</a>
+                class="btn-touch" data-i18n="hero-cta">GET IN TOUCH ↗</a>
         </div>
     </header>
 
 
 
     <section class="typography-section">
-        <div class="big-text">
+        <div class="big-text" data-i18n="typography-text">
             Let's work together<br>
             to recognize your<br>
             potential and shape<br>
@@ -851,8 +887,10 @@
     <!-- Hook Section -->
     <section class="hook-section">
         <div class="hook-content">
-            <h2 class="hook-headline">Membentuk Visi Menjadi <span class="highlight">Realitas Digital</span></h2>
-            <p class="hook-intro">Saya tidak sekadar mendesain, saya menciptakan pengalaman yang meninggalkan kesan
+            <h2 class="hook-headline" data-i18n="hook-title">Membentuk Visi Menjadi <span class="highlight">Realitas
+                    Digital</span></h2>
+            <p class="hook-intro" data-i18n="hook-intro">Saya tidak sekadar mendesain, saya menciptakan pengalaman yang
+                meninggalkan kesan
                 mendalam dan mendorong pertumbuhan bisnis Anda ke level selanjutnya.</p>
         </div>
     </section>
@@ -860,8 +898,8 @@
     <!-- Showcase / Meat Section -->
     <section class="showcase-section" id="works">
         <div class="showcase-header">
-            <h2 class="section-title">Selected Works</h2>
-            <p>Explore my recent digital transformations.</p>
+            <h2 class="section-title" data-i18n="works-title">Selected Works</h2>
+            <p data-i18n="works-desc">Explore my recent digital transformations.</p>
         </div>
         <div class="portfolio-grid">
             <a href="multimedia-advertising.html" class="portfolio-link-wrapper"
@@ -871,7 +909,7 @@
                         <div class="portfolio-img" style="background-image: url('1.png');">
                         </div>
                         <div class="view-project-overlay">
-                            <span>View Project ↗</span>
+                            <span data-i18n="view-project">View Project ↗</span>
                         </div>
                     </div>
                     <div class="portfolio-info">
@@ -920,21 +958,21 @@
                 <img src="abyan 3.png" class="about-image" alt="Abyan Photo">
             </div>
             <div class="about-content">
-                <h2 class="section-title">The Mind<br>Behind The Design</h2>
-                <p>Halo! Saya Abyan Naufal Mumtaz, seorang mahasiswa Bisnis Digital yang mendedikasikan diri pada titik
-                    temu antara kreativitas dan strategi data. Dengan latar belakang kuat di bidang
-                    desain grafis, videografi, dan fotografi, saya tidak hanya menciptakan visual yang memanjakan mata,
-                    tetapi juga memastikan setiap konten memiliki nilai konversi dalam ekosistem multimedia marketing.
-                    Saya percaya bahwa desain yang hebat adalah desain yang mampu mengomunikasikan pesan dan
-                    mengembangkan bisnis secara terukur.</p>
+                <h2 class="section-title" data-i18n="about-title">The Mind<br>Behind The Design</h2>
+                <p data-i18n="about-text">Halo! Saya Abyan Naufal Mumtaz, mahasiswa Bisnis Digital di Universitas Bunda
+                    Mulia (Kampus Serpong). Saya mendedikasikan diri pada integrasi antara kreativitas visual dan
+                    strategi data. Dengan keahlian di bidang desain grafis, videografi, dan fotografi, fokus utama saya
+                    adalah memastikan setiap aset digital memiliki nilai konversi yang terukur dalam ekosistem
+                    multimedia marketing. Saya percaya bahwa desain yang efektif adalah desain yang mampu
+                    mengomunikasikan pesan sekaligus mendorong pertumbuhan bisnis secara nyata.</p>
                 <div class="about-stats">
                     <div class="stat-item">
                         <span class="stat-number">5+</span>
-                        <span class="stat-label">Years Experience</span>
+                        <span class="stat-label" data-i18n="stats-exp">Years Experience</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">Many</span>
-                        <span class="stat-label">Projects Completed</span>
+                        <span class="stat-label" data-i18n="stats-projects">Projects Completed</span>
                     </div>
                 </div>
             </div>
@@ -944,7 +982,7 @@
     <!-- Skills Section -->
     <section class="skills-section" id="skills">
         <div class="skills-header">
-            <h2 class="section-title">Expertise & Tools</h2>
+            <h2 class="section-title" data-i18n="skills-title">Expertise & Tools</h2>
         </div>
         <div class="skills-grid">
             <div class="skills-card">
@@ -987,15 +1025,16 @@
     <!-- Experience Section -->
     <section class="experience-section">
         <div class="experience-header">
-            <h2 class="section-title">Career Journey</h2>
+            <h2 class="section-title" data-i18n="career-title">Career Journey</h2>
         </div>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-date">July 2024 - October 2024</div>
                 <div class="timeline-content">
-                    <h3>Intern <br> Grapich Designer</h3>
+                    <h3 data-i18n="exp-intern-title">Intern <br> Grapich Designer</h3>
                     <div class="company">Morning Communications</div>
-                    <p>Sebagai bagian dari kurikulum SMK Multimedia, saya berkesempatan untuk terjun langsung ke dunia
+                    <p data-i18n="exp-intern-desc">Sebagai bagian dari kurikulum SMK Multimedia, saya berkesempatan
+                        untuk terjun langsung ke dunia
                         profesional melalui program magang di Morning Communication dari Juli hingga Oktober 2024.
                         Pengalaman ini menjadi jembatan bagi saya untuk mempraktikkan keahlian desain grafis dan video
                         grafis saya dalam ekosistem Advertising Agency. Terjun langsung ke lapangan sejak bangku sekolah
@@ -1006,8 +1045,9 @@
             <div class="timeline-item">
                 <div class="timeline-date">2021 - Sekarang</div>
                 <div class="timeline-content">
-                    <h3>Freelance Graphic Designer</h3>
-                    <p>Perjalanan saya di dunia digital dimulai pada tahun 2020 dengan semangat kewirausahaan di tengah
+                    <h3 data-i18n="exp-freelance-title">Freelance Graphic Designer</h3>
+                    <p data-i18n="exp-freelance-desc">Perjalanan saya di dunia digital dimulai pada tahun 2020 dengan
+                        semangat kewirausahaan di tengah
                         masa pandemi COVID-19. Berawal dari tekad untuk menjalankan bisnis top-up game secara online,
                         saya mulai menyadari pentingnya visual yang menarik untuk mendukung penjualan. Hal ini memicu
                         ketertarikan mendalam saya terhadap dunia desain. <br>
@@ -1026,7 +1066,8 @@
     <section class="testimonial-section">
         <div class="testimonial-card">
             <div class="quote-icon">"</div>
-            <p class="testimonial-text">Sebagai mahasiswa Bisnis Digital yang aktif sebagai desainer sejak 2021, saya
+            <p class="testimonial-text" data-i18n="testimonial-text">Sebagai mahasiswa Bisnis Digital yang aktif sebagai
+                desainer sejak 2021, saya
                 memegang prinsip Paul Rand bahwa 'Design is the silent ambassador of your brand'. Saya tidak hanya
                 membuat visual, tapi membangun identitas bisnis Anda.</p>
             <p class="testimonial-author">Abyan Mumtaz</p>
@@ -1035,12 +1076,12 @@
 
     <!-- CTA & Footer Section -->
     <section class="cta-section" id="contact">
-        <h2 class="cta-headline">Ready to Start<br>Your Next Project?</h2>
-        <a href="mailto:abyanmumtaz@gmail.com" class="btn-primary">Let's Talk</a>
+        <h2 class="cta-headline" data-i18n="cta-title">Ready to Start<br>Your Next Project?</h2>
+        <a href="mailto:abyanmumtaz@gmail.com" class="btn-primary" data-i18n="cta-btn">Let's Talk</a>
 
         <footer class="main-footer">
             <div class="footer-left">
-                <p>&copy; 2026 Recognize Potential. All rights reserved.</p>
+                <p data-i18n="footer-copy">© 2026 Recognize Potential. All rights reserved.</p>
             </div>
             <div class="footer-right">
                 <a href="https://www.instagram.com/abyan.mumtaz/" target="_blank"
@@ -1052,6 +1093,8 @@
         </footer>
     </section>
 
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>
