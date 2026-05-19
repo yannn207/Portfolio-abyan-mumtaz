@@ -45,7 +45,8 @@ const translations = {
         "project-hima-desc": "Desain konseptual dan materi visual untuk acara HIMA (Exodus), menciptakan pengalaman visual yang dinamis dan berkesan.",
         "project-majalah-desc": "Eksplorasi layout dan tipografi dalam desain majalah (personal project) untuk menyajikan informasi secara estetis dan terstruktur.",
         "project-personal-desc": "Kumpulan eksplorasi desain pribadi yang mencakup berbagai gaya dan media, sebagai bentuk dedikasi terhadap seni visual.",
-        "creative-exploration-title": "Eksplorasi Multimedia Kreatif"
+        "creative-exploration-title": "Eksplorasi Multimedia Kreatif",
+        "creative-exploration-desc": "Kumpulan eksplorasi visual dan fotografi lanskap, menangkap keindahan alam dan momen-momen autentik yang menceritakan sebuah kisah. Seluruh foto dalam seri ini diabadikan menggunakan kamera Fujifilm X-T1."
     },
     en: {
         "nav-about": "About",
@@ -93,7 +94,8 @@ const translations = {
         "project-hima-desc": "Conceptual design and visual materials for the HIMA (Exodus) event, creating a dynamic and memorable visual experience.",
         "project-majalah-desc": "Exploration of layout and typography in magazine design (personal project) to present information aesthetically and structurally.",
         "project-personal-desc": "A collection of personal design explorations covering various styles and media, as a form of dedication to visual arts.",
-        "creative-exploration-title": "Creative Multimedia Exploration"
+        "creative-exploration-title": "Creative Multimedia Exploration",
+        "creative-exploration-desc": "A collection of visual exploration and landscape photography, capturing natural beauty and authentic moments that tell a story. All photos in this series were captured using a Fujifilm X-T1 camera."
     }
 };
 
