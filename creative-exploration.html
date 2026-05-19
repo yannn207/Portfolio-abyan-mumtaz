@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,12 @@
         body { background-color: var(--bg-color); color: var(--text-primary); font-family: 'Manrope', sans-serif; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
         .close-btn { position: fixed; top: 2rem; right: 2rem; width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.5rem; backdrop-filter: blur(10px); z-index: 1000; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
         .close-btn:hover { background: var(--accent-red); transform: rotate(90deg); }
-        .viewer-container { flex: 1; display: flex; flex-direction: column; padding: 2rem; max-width: 1400px; margin: 0 auto; width: 100%; }
+        .viewer-container { flex: 1; display: flex; flex-direction: column; padding: 0; max-width: 1400px; margin: 0 auto; width: 100%; }
         .project-header { padding: 1rem 0 2rem 0; }
         .project-header h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; text-transform: uppercase; letter-spacing: -1px; line-height: 1; }
         .project-header p { color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0.5rem; }
         .display-section { position: relative; width: 100%; height: 70vh; background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); border-radius: 30px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .main-media { max-width: 100%; max-height: 100%; object-fit: contain; transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); padding: 2rem; }
+        .main-media { max-width: 100%; max-height: 100%; object-fit: contain; transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); padding: 0; }
         video.main-media { width: 100%; height: 100%; }
         .nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 60px; height: 60px; background: rgba(255, 255, 255, 0.05); border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; z-index: 10; }
         .nav-arrow:hover { background: var(--accent-red); transform: translateY(-50%) scale(1.1); }
@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <a href="index.html#works" class="close-btn">✕</a>
+    <a href="index.html#works" class="close-btn">&times;</a>
     <div class="viewer-container">
         <header class="project-header">
             <p>Project Detail</p>
@@ -45,38 +45,114 @@
                 Kumpulan eksplorasi visual dan fotografi lanskap, menangkap keindahan alam dan momen-momen autentik yang menceritakan sebuah kisah. Seluruh foto dalam seri ini diabadikan menggunakan kamera Fujifilm X-T1.
             </p>
         </header>
-        <section class="display-section">
-            <button class="nav-arrow prev-arrow" onclick="prevImage()">❮</button>
+                <section class="display-section">
+            <button class="nav-arrow prev-arrow" onclick="prevImage()">&#10094;</button>
             <div id="mediaContainer" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                 <img id="mainImage" src="" alt="Creative Project" class="main-media">
                 <video id="mainVideo" class="main-media" style="display: none;" controls loop muted></video>
             </div>
-            <button class="nav-arrow next-arrow" onclick="nextImage()">❯</button>
+            <button class="nav-arrow next-arrow" onclick="nextImage()">&#10095;</button>
         </section>
         <div class="thumbnail-container">
             <div class="thumbnail-scroll" id="thumbScroll"></div>
         </div>
         <div class="footer-info">
-            <span data-i18n="footer-copy">© 2026 Recognize Potential. All rights reserved.</span>
+            <span data-i18n="footer-copy">&copy; 2026 Recognize Potential. All rights reserved.</span>
             <span id="imageCounter">1 / 0</span>
         </div>
     </div>
     <script>
         const images = [
-            "Creative/1.jpg",
-            "Creative/2.jpg",
-            "Creative/3.jpg",
-            "Creative/4.jpg",
-            "Creative/5.jpg",
-            "Creative/6.jpg",
-            "Creative/7.jpg",
-            "Creative/8.jpg",
-            "Creative/9.jpg",
-            "Creative/10.jpg",
-            "Creative/11.jpg",
-            "Creative/12.jpg",
-            "Creative/13.jpg",
-            "Creative/14.jpg"
+            "Photography%20Landscape/%23fujifilm%20%23landscape%20(1).jpg",
+            "Photography%20Landscape/%23fujifilm%20%23landscape%20(2).jpg",
+            "Photography%20Landscape/%23fujifilm%20%23landscape%20(3).jpg",
+            "Photography%20Landscape/%23fujifilm%20%23landscape%20(4).jpg",
+            "Photography%20Landscape/%23fujifilm%20%23landscape%20(5).jpg",
+            "Photography%20Landscape/%23fujifilm%20%23landscape%20(6).jpg",
+            "Photography%20Landscape/%23fujifilm%20%23landscape%20(7).jpg",
+            "Photography%20Landscape/%23fujifilm%20%23landscape.jpg",
+            "Photography%20Landscape/476373077_18492933439008266_2680566677597408479_n..jpg",
+            "Photography%20Landscape/476415319_18492933451008266_50897407365450547_n..jpg",
+            "Photography%20Landscape/476476775_18492816322008266_288598407895780336_n..jpg",
+            "Photography%20Landscape/476477670_18492816319008266_6959690087090026418_n..jpg",
+            "Photography%20Landscape/476489024_18492816307008266_5621549939893621485_n..jpg",
+            "Photography%20Landscape/476501533_18492816316008266_398757642023102991_n..jpg",
+            "Photography%20Landscape/476506818_18492816343008266_7366339933034134275_n..jpg",
+            "Photography%20Landscape/476594693_18492816331008266_6916370777604287800_n..jpg",
+            "Photography%20Landscape/476671645_18492933442008266_7398999640247081456_n..jpg",
+            "Photography%20Landscape/484373624_18500975050008266_7360676943588942293_n..jpg",
+            "Photography%20Landscape/484405896_18500975029008266_4874791060743812601_n..jpg",
+            "Photography%20Landscape/484587332_18500361256008266_6796901053280568272_n..jpg",
+            "Photography%20Landscape/484822241_18500361247008266_4225117132856636304_n..jpg",
+            "Photography%20Landscape/484822621_18500975038008266_1377666387926874989_n..jpg",
+            "Photography%20Landscape/484876269_18500361268008266_8002357932866280346_n..jpg",
+            "Photography%20Landscape/485101087_18500975062008266_7853607820634988823_n..jpg",
+            "Photography%20Landscape/485209175_18500361265008266_7332952779130060917_n..jpg",
+            "Photography%20Landscape/485266106_18500361232008266_7337033746688112557_n..jpg",
+            "Photography%20Landscape/488617429_18504470728008266_6016706927772050946_n..jpg",
+            "Photography%20Landscape/488624447_18504470719008266_1937537800447511705_n..jpg",
+            "Photography%20Landscape/488679140_18504470749008266_2316453773122338321_n..jpg",
+            "Photography%20Landscape/488706411_18504470695008266_2146703773214746003_n..jpg",
+            "Photography%20Landscape/488707455_18504470686008266_8922662465795342889_n..jpg",
+            "Photography%20Landscape/488783356_18504470758008266_989342234677832593_n..jpg",
+            "Photography%20Landscape/488972474_18504470740008266_7407734175449861688_n..jpg",
+            "Photography%20Landscape/489359203_18504470704008266_6393343516082040141_n..jpg",
+            "Photography%20Landscape/539470912_18532455694008266_617971308575955104_n..jpg",
+            "Photography%20Landscape/540289231_18532455712008266_5258343256270030015_n..jpg",
+            "Photography%20Landscape/540407282_18532455685008266_5368966774631498963_n..jpg",
+            "Photography%20Landscape/540505976_18532455649008266_3044793196099309032_n..jpg",
+            "Photography%20Landscape/540626500_18532455703008266_5659720927085190705_n..jpg",
+            "Photography%20Landscape/541111606_18532455676008266_7218013027374827990_n..jpg",
+            "Photography%20Landscape/541147927_18532455658008266_5012223459335326807_n..jpg",
+            "Photography%20Landscape/541150711_18532455673008266_2260653726385922420_n..jpg",
+            "Photography%20Landscape/569205033_18544640227008266_5369462949932543878_n..jpg",
+            "Photography%20Landscape/570148238_18544640173008266_8281553408431567518_n..jpg",
+            "Photography%20Landscape/570264656_18544399954008266_1507848794154318048_n..jpg",
+            "Photography%20Landscape/571036610_18544640200008266_1091225403012187897_n..jpg",
+            "Photography%20Landscape/571172661_18544399963008266_2243174756866470453_n..jpg",
+            "Photography%20Landscape/571213813_18544640215008266_1532966316227020107_n..jpg",
+            "Photography%20Landscape/571511644_18544640197008266_7320733062042097512_n..jpg",
+            "Photography%20Landscape/571659880_18544640236008266_3386705805261936764_n..jpg",
+            "Photography%20Landscape/571748702_18544399927008266_7431471624597405062_n..jpg",
+            "Photography%20Landscape/571760583_18544640245008266_4357300494833919050_n..jpg",
+            "Photography%20Landscape/572134943_18544399945008266_4150277436910564291_n..jpg",
+            "Photography%20Landscape/572164150_18544399915008266_4114928149262895003_n..jpg",
+            "Photography%20Landscape/572360166_18544640254008266_2251862244532875238_n..jpg",
+            "Photography%20Landscape/572607066_18544399891008266_8634668967399258482_n..jpg",
+            "Photography%20Landscape/572616215_18544399936008266_317723719173679795_n..jpg",
+            "Photography%20Landscape/572747489_18544640182008266_7809660191071758365_n..jpg",
+            "Photography%20Landscape/572880665_18544399918008266_1170202091800906777_n..jpg",
+            "Photography%20Landscape/573816085_18544399900008266_5385297965587647933_n..jpg",
+            "Photography%20Landscape/649242838_17936199675173283_8531566323634082321_n..jpg",
+            "Photography%20Landscape/651182782_17938241106171851_4829162361401438409_n..jpg",
+            "Photography%20Landscape/651665363_17923376592258851_7297223370117809144_n..jpg",
+            "Photography%20Landscape/652549095_17999999564874399_6348485040429209292_n..jpg",
+            "Photography%20Landscape/652798476_17988285800952637_6040050178190094164_n..jpg",
+            "Photography%20Landscape/654111783_18094974788078100_1403570299734569055_n..jpg",
+            "Photography%20Landscape/654404155_18109943959819627_2541615898395398777_n..jpg",
+            "Photography%20Landscape/654558404_18087492206593867_3608586188152072963_n..jpg",
+            "Photography%20Landscape/655012027_18106714570665613_1946656784171611181_n..jpg",
+            "Photography%20Landscape/655013126_18091117781329335_4933819952126284511_n..jpg",
+            "Photography%20Landscape/655160924_18119332354621346_1835008694461068320_n..jpg",
+            "Photography%20Landscape/655176823_18060880694677029_7382248072029088425_n..jpg",
+            "Photography%20Landscape/655568315_18096654695002741_1716242540430570622_n..jpg",
+            "Photography%20Landscape/656185018_18067306520315743_628185012699001118_n..jpg",
+            "Photography%20Landscape/656272199_18075587741407829_3887272481913844814_n..jpg",
+            "Photography%20Landscape/656274434_18056212289479994_5740390764419000861_n..jpg",
+            "Photography%20Landscape/656292376_18101511112934930_2440385498777660317_n..jpg",
+            "Photography%20Landscape/656772582_18135220990513479_5668509396807876988_n..jpg",
+            "Photography%20Landscape/657177500_18081308795368044_8187015311382250604_n..jpg",
+            "Photography%20Landscape/657251390_18075729020170002_2450084058630111077_n..jpg",
+            "Photography%20Landscape/657380282_18091182451923022_6288677430546198332_n..jpg",
+            "Photography%20Landscape/657880123_18187915438365854_6424492882492001449_n..jpg",
+            "Photography%20Landscape/658097320_18345850864243183_3123825541723688305_n..jpg",
+            "Photography%20Landscape/659836472_18418982479121567_4641136483515427756_n..jpg",
+            "Photography%20Landscape/661467894_18346646224241910_2286195406304221803_n..jpg",
+            "Photography%20Landscape/661493209_18115555432734104_8336408271004222192_n..jpg",
+            "Photography%20Landscape/661639589_18370002772166171_5405681589476498130_n..jpg",
+            "Photography%20Landscape/662309936_18398764804147063_458541079747104866_n..jpg",
+            "Photography%20Landscape/669600596_18074722481540249_4280296648357503884_n..jpg",
+            "Photography%20Landscape/670269370_18355365100226245_2062457602202915827_n..jpg"
         ];
         let currentIndex = 0;
         const thumbScroll = document.getElementById('thumbScroll');
@@ -89,7 +165,7 @@
             thumb.className = "thumb " + (index === 0 ? "active" : "");
             thumb.onclick = () => changeImage(index);
             if (isVideo) {
-                thumb.innerHTML = '<video src="' + src + '#t=1"></video><div class="video-badge">▶</div>';
+                thumb.innerHTML = '<video src="' + src + '#t=1"></video><div class="video-badge">â–¶</div>';
             } else {
                 thumb.innerHTML = '<img src="' + src + '" alt="Result ' + (index + 1) + '">';
             }
@@ -138,3 +214,6 @@
     <script src="js/i18n.js"></script>
 </body>
 </html>
+
+
+
