@@ -36,7 +36,15 @@ const translations = {
         "project-blueband-desc": "Dalam proyek ini, saya ditugaskan untuk menciptakan materi promosi di titik penjualan (Point of Sale) dan merchandise yang mampu meningkatkan visibilitas produk di area retail yang padat.",
         "project-kitkat-desc": "Dalam proyek ini, saya mengeksplorasi fleksibilitas visual KitKat melalui dua pendekatan kreatif : Regional Campaign Visual dan Flavor Extension Design",
         "project-kokokrunch-desc": "Dalam proyek ini, saya merancang visual untuk kampanye \"Koko Krunch Kreatif Club Pola\", sebuah inisiatif yang bertujuan untuk meningkatkan interaksi konsumen cilik dengan brand melalui aktivitas edukatif.",
-        "project-morning-desc": "Tempat saya melaksanakan program magang selama 4 bulan, di mana saya mengasah kemampuan profesional di industri Advertising Agency."
+        "project-morning-desc": "Tempat saya melaksanakan program magang selama 4 bulan, di mana saya mengasah kemampuan profesional di industri Advertising Agency.",
+        "freelance-title": "Proyek Lepas",
+        "freelance-desc": "Koleksi karya desain yang beragam, dari branding hingga ilustrasi digital, menunjukkan fleksibilitas kreatif dan pemecahan masalah visual untuk berbagai klien.",
+        "project-thumbnail-desc": "Desain thumbnail yang menarik dan strategis untuk meningkatkan click-through rate (CTR) pada platform digital.",
+        "project-onna-desc": "Pengembangan identitas visual dan materi promosi untuk Onna, menonjolkan kualitas dan estetika.",
+        "project-telkomsel-desc": "Desain materi komunikasi dan promosi digital untuk Telkomsel guna memperkuat brand presence di audiens target.",
+        "project-hima-desc": "Desain konseptual dan materi visual untuk acara HIMA (Exodus), menciptakan pengalaman visual yang dinamis dan berkesan.",
+        "project-majalah-desc": "Eksplorasi layout dan tipografi dalam desain majalah (personal project) untuk menyajikan informasi secara estetis dan terstruktur.",
+        "project-personal-desc": "Kumpulan eksplorasi desain pribadi yang mencakup berbagai gaya dan media, sebagai bentuk dedikasi terhadap seni visual."
     },
     en: {
         "nav-about": "About",
@@ -75,7 +83,15 @@ const translations = {
         "project-blueband-desc": "In this project, I was assigned to create Point of Sale (POS) promotional materials and merchandise that could increase product visibility in crowded retail areas.",
         "project-kitkat-desc": "In this project, I explored KitKat's visual flexibility through two creative approaches: Regional Campaign Visual and Flavor Extension Design.",
         "project-kokokrunch-desc": "In this project, I designed visuals for the \"Koko Krunch Kreatif Club Pola\" campaign, an initiative aimed at increasing young consumer interaction with the brand through educational activities.",
-        "project-morning-desc": "Where I completed a 4-month internship program, honing my professional skills in the Advertising Agency industry."
+        "project-morning-desc": "Where I completed a 4-month internship program, honing my professional skills in the Advertising Agency industry.",
+        "freelance-title": "Freelance Project",
+        "freelance-desc": "A diverse collection of design work, from branding to digital illustration, showcasing creative flexibility and visual problem-solving for various clients.",
+        "project-thumbnail-desc": "Attractive and strategic thumbnail designs to increase click-through rate (CTR) on digital platforms.",
+        "project-onna-desc": "Development of visual identity and promotional materials for Onna, highlighting quality and aesthetics.",
+        "project-telkomsel-desc": "Design of digital communication and promotional materials for Telkomsel to strengthen brand presence in the target audience.",
+        "project-hima-desc": "Conceptual design and visual materials for the HIMA (Exodus) event, creating a dynamic and memorable visual experience.",
+        "project-majalah-desc": "Exploration of layout and typography in magazine design (personal project) to present information aesthetically and structurally.",
+        "project-personal-desc": "A collection of personal design explorations covering various styles and media, as a form of dedication to visual arts."
     }
 };
 
