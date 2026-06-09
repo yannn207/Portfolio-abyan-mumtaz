@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const langSwitcher = document.querySelector('.lang-switcher');
     let currentLang = localStorage.getItem('preferredLang') || (navigator.language.startsWith('id') ? 'id' : 'en');
-
     const updateText = (lang) => {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
@@ -12,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     el.textContent = translations[lang][key];
                 }
+            }
+        });
+
+        // Translate placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang] && translations[lang][key]) {
+                el.setAttribute('placeholder', translations[lang][key]);
             }
         });
         

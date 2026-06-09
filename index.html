@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com;">
     <title>Recognize Potential | Digital Agency</title>
     <style>
         /* Import Font Modern */
@@ -144,15 +149,74 @@
             gap: 4rem;
         }
 
+        .hero-image-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
         .hero-image {
             width: 100%;
             height: 500px;
-            background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop');
+            background-image: url('photo landingpage.jpeg');
             /* Ganti dengan gambar portrait Anda */
             background-size: cover;
-            background-position: center;
+            background-position: center bottom;
+            border-radius: 15px;
+            filter: contrast(1.2) brightness(1.1);
+        }
+
+        .realtime-clock-bar {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            filter: contrast(1.2) brightness(0.8);
+            padding: 0.75rem 1.2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: 'Manrope', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            align-self: stretch;
+        }
+
+        .realtime-clock-bar:hover {
+            border-color: rgba(255, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 0, 0, 0.08);
+        }
+
+        .realtime-clock-bar .day {
+            color: var(--text-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .realtime-clock-bar .date {
+            color: var(--text-secondary);
+            margin-left: 6px;
+        }
+
+        .realtime-clock-bar .separator {
+            color: var(--accent-red);
+            margin: 0 10px;
+            font-weight: 800;
+        }
+
+        .realtime-clock-bar .time {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .hero-content {
@@ -823,6 +887,157 @@
                 text-align: center;
             }
         }
+
+        /* Contact Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            background-color: #0a0a0a;
+            border: 1px solid rgba(255, 0, 0, 0.25);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2.5rem;
+            position: relative;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 25px 50px -12px rgba(255, 0, 0, 0.25);
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.75rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            line-height: 1;
+        }
+
+        .close-modal-btn:hover {
+            color: var(--accent-red);
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-red);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            color: var(--text-primary);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-red);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.25);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background-color: var(--accent-red);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background-color: #d60000;
+            transform: scale(1.02);
+        }
+
+        .form-status {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: none;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .form-status.success {
+            color: #22c55e;
+            display: block;
+        }
+
+        .form-status.error {
+            color: #ef4444;
+            display: block;
+        }
     </style>
 </head>
 
@@ -845,7 +1060,12 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-image"></div>
+        <div class="hero-image-container">
+            <div class="hero-image"></div>
+            <div class="realtime-clock-bar">
+                <span id="realtime-date-text"></span>
+            </div>
+        </div>
         <div class="hero-content">
             <h1 data-i18n="hero-title">Recognize<br>Potential</h1>
             <p data-i18n="hero-desc">Discover the power of innovation and embrace growth with bold strategies.</p>
@@ -1089,24 +1309,144 @@
     <!-- CTA & Footer Section -->
     <section class="cta-section" id="contact">
         <h2 class="cta-headline" data-i18n="cta-title">Ready to Start<br>Your Next Project?</h2>
-        <a href="mailto:abyanmumtaz@gmail.com" class="btn-primary" data-i18n="cta-btn">Let's Talk</a>
+        <a href="#" id="openContactModal" class="btn-primary" data-i18n="cta-btn">Let's Talk</a>
 
         <footer class="main-footer">
             <div class="footer-left">
                 <p data-i18n="footer-copy">© 2026 Recognize Potential. All rights reserved.</p>
             </div>
             <div class="footer-right">
-                <a href="https://www.instagram.com/abyan.mumtaz/" target="_blank"
-                    rel="noopener noreferrer">Instagram</a>
-                <a href="https://www.linkedin.com/in/abyan-mumtaz-590b7028b/" target="_blank"
-                    rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com/abyan.mumtaz/" target="_blank" rel="noopener noreferrer"
+                    >Instagram</a>
+                <a href="https://www.linkedin.com/in/abyan-mumtaz-590b7028b/" target="_blank" rel="noopener noreferrer"
+                    >LinkedIn</a>
                 <a href="https://www.tiktok.com/@abyan.mumtaz_" target="_blank" rel="noopener noreferrer">Tiktok</a>
             </div>
         </footer>
     </section>
 
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-container">
+            <button class="close-modal-btn" id="closeContactModal">&times;</button>
+            <h3 class="modal-title" data-i18n="modal-title">Get in Touch</h3>
+            <form class="contact-form" id="ajaxContactForm">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="3c1132b6-1999-45c7-ad31-49de1d0bc49c">
+                <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
+                <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+                <div class="form-group">
+                    <label for="form-name" data-i18n="modal-label-name">Nama</label>
+                    <input type="text" id="form-name" name="name" required placeholder="Nama Anda"
+                        data-i18n-placeholder="modal-placeholder-name">
+                </div>
+
+                <div class="form-group">
+                    <label for="form-email" data-i18n="modal-label-email">Email</label>
+                    <input type="email" id="form-email" name="email" required placeholder="email@contoh.com"
+                        data-i18n-placeholder="modal-placeholder-email">
+                </div>
+
+                <div class="form-group">
+                    <label for="form-message" data-i18n="modal-label-message">Pesan</label>
+                    <textarea id="form-message" name="message" required placeholder="Halo Abyan, saya tertarik untuk..."
+                        data-i18n-placeholder="modal-placeholder-message"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn" data-i18n="modal-submit">Kirim Pesan</button>
+                <div class="form-status" id="formStatus"></div>
+            </form>
+        </div>
+    </div>
+
     <script src="js/translations.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="js/realtime-clock.js"></script>
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('contactModal');
+        const openModalBtn = document.getElementById('openContactModal');
+        const closeModalBtn = document.getElementById('closeContactModal');
+
+        openModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Form submission using Web3Forms
+        const form = document.getElementById('ajaxContactForm');
+        const formStatus = document.getElementById('formStatus');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get current language and helper function
+            const currentLang = localStorage.getItem('preferredLang') || (navigator.language.startsWith('id') ? 'id' : 'en');
+            const getTranslation = (key) => {
+                return (translations[currentLang] && translations[currentLang][key]) ? translations[currentLang][key] : key;
+            };
+
+            const accessKeyInput = form.querySelector('input[name="access_key"]');
+            if (accessKeyInput.value === 'YOUR_ACCESS_KEY_HERE' || accessKeyInput.value === '') {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = getTranslation('modal-error-key');
+                return;
+            }
+
+            submitBtn.textContent = getTranslation('modal-sending');
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+                .then(async (response) => {
+                    let jsonResponse = await response.json();
+                    if (response.status == 200) {
+                        formStatus.className = 'form-status success';
+                        formStatus.textContent = getTranslation('modal-success');
+                        form.reset();
+                        setTimeout(() => {
+                            modal.classList.remove('active');
+                            formStatus.style.display = 'none';
+                        }, 3000);
+                    } else {
+                        console.log(response);
+                        formStatus.className = 'form-status error';
+                        formStatus.textContent = jsonResponse.message || getTranslation('modal-error-fail');
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    formStatus.className = 'form-status error';
+                    formStatus.textContent = getTranslation('modal-error-conn');
+                })
+                .then(() => {
+                    submitBtn.textContent = getTranslation('modal-submit');
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
 </body>
 
 </html>
