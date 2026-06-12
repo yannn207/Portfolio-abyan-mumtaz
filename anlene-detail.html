@@ -9,10 +9,10 @@
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&display=swap');
 
         :root {
-            --bg-color: #050505;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent-red: #ff0000;
+            --bg-color: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #555555;
+            --accent-red: #96A78D;
         }
 
         * {
@@ -37,18 +37,17 @@
             right: 2rem;
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.05);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            text-decoration: none;
+            color: black; text-decoration: none;
             font-size: 1.5rem;
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .close-btn:hover { background: var(--accent-red); transform: rotate(90deg); }
@@ -71,14 +70,14 @@
             position: relative;
             width: 100%;
             height: 65vh;
-            background: radial-gradient(circle, #1a1a1a 0%, #050505 100%);
+            background: radial-gradient(circle, #f9f9f9 0%, #f0f0f0 100%);
             border-radius: 30px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .main-image { max-width: 100%; max-height: 100%; object-fit: contain; transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); padding: 2rem; }
@@ -89,11 +88,10 @@
             transform: translateY(-50%);
             width: 60px;
             height: 60px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.05);
             border: none;
             border-radius: 50%;
-            color: white;
-            font-size: 1.5rem;
+            color: black; font-size: 1.5rem;
             cursor: pointer;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
@@ -107,7 +105,7 @@
         .prev-arrow { left: 2rem; }
         .next-arrow { right: 2rem; }
 
-        .thumbnail-container { margin-top: 2rem; width: 100%; background: rgba(255, 255, 255, 0.02); padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .thumbnail-container { margin-top: 2rem; width: 100%; background: rgba(0, 0, 0, 0.02); padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(0, 0, 0, 0.05); }
         .thumbnail-scroll { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: thin; scrollbar-color: var(--accent-red) transparent; }
         .thumbnail-scroll::-webkit-scrollbar { height: 4px; }
         .thumbnail-scroll::-webkit-scrollbar-thumb { background: var(--accent-red); border-radius: 10px; }
@@ -199,3 +197,4 @@
     <script src="js/i18n.js"></script>
 </body>
 </html>
+
