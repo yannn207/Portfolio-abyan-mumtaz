@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -36,25 +36,25 @@
     </style>
 </head>
 <body>
-    <a href="freelance-project.html" class="close-btn">?</a>
+    <a href="freelance-project.html" class="close-btn">&times;</a>
     <div class="viewer-container">
         <header class="project-header">
             <p>Project Detail</p>
             <h1>MAJALAH (PERSONAL PROJECT)</h1>
         </header>
         <section class="display-section">
-            <button class="nav-arrow prev-arrow" onclick="prevImage()">?</button>
+            <button class="nav-arrow prev-arrow" onclick="prevImage()">&#10094;</button>
             <div id="mediaContainer" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                 <img id="mainImage" src="MAJALAH.png" alt="MAJALAH (PERSONAL PROJECT) Project" class="main-media">
                 <video id="mainVideo" class="main-media" style="display: none;" controls loop muted></video>
             </div>
-            <button class="nav-arrow next-arrow" onclick="nextImage()">?</button>
+            <button class="nav-arrow next-arrow" onclick="nextImage()">&#10095;</button>
         </section>
         <div class="thumbnail-container">
             <div class="thumbnail-scroll" id="thumbScroll"></div>
         </div>
         <div class="footer-info">
-            <span data-i18n="footer-copy">� 2026 Recognize Potential. All rights reserved.</span>
+            <span data-i18n="footer-copy">© 2026 Recognize Potential. All rights reserved.</span>
             <span id="imageCounter">1 / 0</span>
         </div>
     </div>
@@ -74,7 +74,7 @@
             thumb.className = "thumb " + (index === 0 ? "active" : "");
             thumb.onclick = () => changeImage(index);
             if (isVideo) {
-                thumb.innerHTML = '<video src="' + src + '#t=1"></video><div class="video-badge">?</div>';
+                thumb.innerHTML = '<video src="' + src + '#t=1"></video><div class="video-badge">&#9658;</div>';
             } else {
                 thumb.innerHTML = '<img src="' + src + '" alt="Result ' + (index + 1) + '">';
             }
@@ -124,6 +124,8 @@
     <script src="js/i18n.js"></script>
 </body>
 </html>
+
+
 
 
 
